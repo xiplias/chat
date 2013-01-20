@@ -9,4 +9,6 @@ preserve-inputs
 less
 coffeescript
 bafa
-jade-handlebars
+router
+accounts-github
+accounts-ui

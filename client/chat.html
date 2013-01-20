@@ -3,16 +3,79 @@
 </head>
 
 <body>
-  <div id="leftbar">
-    {{>leftbar}}
-  </div>
-  <div id="chat">
+  <nav id="sidebar">
+    {{> sidebar}}
+  </nav>
+  <article id="chat">
     {{> chat}}
-  </div>
+  </article>
+  {{> modal}}
 </body>
 
-<template name="hello">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+<template name="chat">
+  <textarea id="input_message"></textarea>
+  <input type="submit" class="btn" id="submit_message" />
+</template>
+
+<template name="sidebar">
+  <br>
+  <div id="logo">
+    <i class="icon-cloud"></i>
+  </div>
+  <h2>Rooms</h2>
+  <ul>
+    {{#each rooms}}
+      <li>
+        <a href="/rooms/{{name}}">{{name}}</a>
+      </li>
+    {{/each}}
+    <li>
+      <a href="/rooms/new">New Room</a>
+    </li>
+  </ul>
+
+  <h2>Users</h2>
+  <ul>
+    {{#each users}}
+    <li>
+      <a href="/users/{{profile.name}}">{{profile.name}}</a>
+    </li>
+    {{/each}}
+  </ul>
+
+  <h2>Options</h2>
+  <ul>
+    <li>
+      <a href="#">My Account</a>
+    </li>
+    <li>
+      <a href="#">Manage users</a>
+    </li>
+  </ul>
+
+  {{loginButtons}}
+  <br>
+</template>
+
+<template name="modal">
+  {{#if need_modal "new_room"}}
+    {{> new_room}}
+  {{/if}}
+</template>
+
+<template name="new_room">
+  <div class="modal">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h3>New Room</h3>
+    </div>
+    <div class="modal-body">
+      <label for="input_room_name">Room name</label>
+      <input id="input_room_name" type="text" />
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="btn close_modal">Close</a>
+      <a href="#" class="btn btn-primary" id="submit_new_room">Create room</a>
+    </div>
+  </div>
 </template>

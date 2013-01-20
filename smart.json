@@ -5,6 +5,7 @@
   },
   "packages": {
     "bafa": {},
-    "jade-handlebars": {}
+    "jade-handlebars": {},
+    "router": {}
   }
 }
