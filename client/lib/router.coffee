@@ -4,8 +4,12 @@ Meteor.Router.add({
   '/rooms/new': (project_id)->
     Session.set("modal", "new_room")
 
-  '/rooms/:room_name': (room_name)->
-    Session.set("room_name", room_name)
+  '/rooms/:room_id': (room_id)->
+    Session.set("room_id", room_id)
+    Session.set("modal", "")
+
+  '/users/:user_id': (user_id)->
+    Session.set("user_id", user_id)
 });
 
 Meteor.Router.filters({

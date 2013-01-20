@@ -4,16 +4,13 @@ body, html {
   height: 100%;
 }
 
-#sidebar { 
-  position: relative;
-  width: 20%;
-  height: 100%;
-  min-width: 200px;
-  background: #151c22;
-} 
-
 #sidebar {
   float: left;
+  width: 15%;
+  height: 100%;
+  min-width: 150px;
+  background: #151c22;
+
   #logo {
     text-align: center;
   }
@@ -24,8 +21,10 @@ body, html {
   }
 
   ul {
+
     font-size: 12px;
     padding: 0;
+    padding-left: 10px;
     margin: 0;
     list-style: none;
 
@@ -33,7 +32,7 @@ body, html {
       background-position: 2px 2px;
       color: #fff;
       display: block;
-      padding: 6px 12px 6px 36px;
+      padding: 6px 12px 6px 20px;
       text-decoration: none;
       text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
     }
@@ -46,6 +45,56 @@ body, html {
 
 #chat {
   float:left;
+  width: 85%;
+}
+
+#room_top {
+  text-align: center;
+  background: #f1f1f1;
+  background: -webkit-linear-gradient(top, #e5e5e5 0%, #bababa 80%);
+  border-bottom: 1px solid #969696;
+  height: 30px;
+}
+
+#message_form {
+  position: absolute;
+  bottom: 0;
+  padding: 10px;
+  width: 100%;
+  background: #f2f2f2;
+
+  textarea {
+    width: 60%;
+    margin: 0;
+  }
+}
+
+#messages {
+  height: 100%;
+}
+
+.message_container {
+  font-family: 'Lucida Grande', arial, sans-serif;
+  font-size: 12px;
+
+  width: 100%;
+
+  border-bottom: 1px #f2f2f2 solid;
+
+  .author {
+
+  }
+  .author {
+    padding: 2px 10px 2px 22px;
+    width: 150px;
+    text-align: right;
+    border-right: 1px #f2f2f2 solid;
+    background: #fafafa;
+  }
+
+  .message {
+    padding: 2px 10px 2px 10px;
+  }
 }
 
 h2 {

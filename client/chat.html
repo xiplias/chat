@@ -13,8 +13,23 @@
 </body>
 
 <template name="chat">
-  <textarea id="input_message"></textarea>
-  <input type="submit" class="btn" id="submit_message" />
+  <div id="room_top">{{room.name}}</div>
+  <div id="messages">
+    {{#each messages}}  
+     <table class="message_container">  
+        <tr>
+          <td class="author">{{author.profile.name}}</td>
+          <td class="message">{{message}}</td>
+        </tr>
+      </table>
+    {{/each}}
+  </div>
+  <div id="message_form">
+    <textarea id="input_message"></textarea>
+    <input type="submit" class="btn" id="submit_message" />
+  </div>
+  <div id="room_info">
+  </div>
 </template>
 
 <template name="sidebar">
@@ -26,7 +41,7 @@
   <ul>
     {{#each rooms}}
       <li>
-        <a href="/rooms/{{name}}">{{name}}</a>
+        <a href="/rooms/{{_id}}">{{name}}</a>
       </li>
     {{/each}}
     <li>
@@ -43,16 +58,6 @@
     {{/each}}
   </ul>
 
-  <h2>Options</h2>
-  <ul>
-    <li>
-      <a href="#">My Account</a>
-    </li>
-    <li>
-      <a href="#">Manage users</a>
-    </li>
-  </ul>
-
   {{loginButtons}}
   <br>
 </template>
@@ -66,7 +71,7 @@
 <template name="new_room">
   <div class="modal">
     <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <button type="button" class="close close_modal" data-dismiss="modal" aria-hidden="true">&times;</button>
       <h3>New Room</h3>
     </div>
     <div class="modal-body">
